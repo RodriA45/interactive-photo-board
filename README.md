@@ -1,47 +1,43 @@
-# 📌 Photo Board
+# 📸 Interactive Photo Board
 
-Una galería de fotos interactiva estilo **tablero de corcho** con álbumes en formato **tira de película**.
-Hecha con HTML, CSS y JavaScript puro — sin frameworks, sin dependencias propias.
+Una galería de fotos interactiva estilo **tablero de corcho** con álbumes en formato **tira de película (filmstrip)**.
+Desarrollada con HTML, CSS y JavaScript puro — sin frameworks y sin dependencias complejas.
 
 ---
 
-## ✨ Funcionalidades
+## ✨ Características Principales
 
-| Feature | Descripción |
+| Característica | Descripción |
 |---|---|
-| 🖼️ Tablero de corcho | Álbumes colgados con clips metálicos en hilos horizontales |
-| 📽️ Vista filmstrip | Al abrir un álbum se muestra una tira de película con 2 filas |
-| ➡️ Transición slide | Animación horizontal suave al abrir/cerrar álbumes |
-| ➕ Agregar álbumes | Botón "+" para crear nuevos álbumes dinámicamente |
-| 🗑️ Eliminar álbumes | Botón de eliminación con confirmación |
-| 📸 Subir fotos | Clic en "Agregar fotos" o arrastrá archivos directo a la página |
-| 🗜️ Compresión | Las imágenes se comprimen automáticamente a 800px antes de guardar |
-| 🗑️ Eliminar fotos | Hover sobre una foto → botón ✕ para eliminarla |
-| ↕️ Reordenar fotos | Drag & drop entre fotos dentro del álbum |
-| 🔍 Búsqueda inteligente | Buscar álbumes y fotos ignorando mayúsculas y tildes (acentos) |
-| 🌙 Modo oscuro | Toggle para alternar entre tema claro y oscuro |
-| 🎨 Color del tablero | Color picker para personalizar el color del fondo |
-| 📤 Exportar ZIP | Descargá todas las fotos del álbum como archivo .zip |
-| 💾 Persistencia | Todo se guarda automáticamente en localStorage |
-| ✏️ Editable | Títulos editables: tablero, subtítulo, nombre de álbum, pie de foto |
-| 🔍 Lightbox | Clic en foto → vista ampliada con flechas y contador |
-| ⌨️ Teclado | Flechas, Escape y Tab para navegar todo sin mouse |
-| ♿ Accesibilidad | Atributos aria-*, role, foco visible, aria-live |
-| 📱 Responsive | Adaptado para móviles y pantallas chicas |
-| 🏷️ Favicon | Ícono dinámico de cámara de fotos integrado |
+| 🖼️ Tablero de corcho | Álbumes colgados con clips metálicos en cables horizontales. |
+| 📽️ Vista filmstrip | Al abrir un álbum, se muestra una tira de película inmersiva con 2 filas. |
+| ➡️ Transición fluida | Animación horizontal (slide) suave al abrir y cerrar álbumes. |
+| ➕ Gestión de álbumes | Crea nuevos álbumes dinámicamente y elimínalos con un solo clic. |
+| 📸 Subida de fotos | Haz clic en "Agregar fotos" o arrastra los archivos (drag & drop) directamente a la página. |
+| 🗜️ Compresión automática | Las imágenes se redimensionan y comprimen automáticamente a 800px para ahorrar espacio. |
+| ↕️ Reordenar fotos | Arrastra y suelta (drag & drop) tus fotos dentro del álbum para reordenarlas fácilmente. ¡La primera foto será la portada! |
+| 🔍 Búsqueda inteligente | Buscador de álbumes y fotos que ignora mayúsculas y tildes. |
+| 🌙 Modo oscuro | Cambia instantáneamente entre el tema claro y oscuro. |
+| 🎨 Color personalizable | Selector de color (color picker) para cambiar el fondo del tablero. |
+| 📤 Exportar ZIP | Descarga todas las fotos de un álbum en formato `.zip` con un solo clic. |
+| 💾 Persistencia local | Todos tus álbumes, fotos y colores se guardan automáticamente en tu navegador usando `localStorage`. |
+| ✏️ Textos editables | Doble clic en los títulos para editar el nombre del tablero, subtítulo, álbum y pies de foto. |
+| 🔍 Lightbox integrado | Haz clic en cualquier foto para verla ampliada con controles de navegación. |
+| ⌨️ Navegación por teclado | Usa las flechas, `Escape` y `Tab` para navegar por la interfaz sin necesidad de usar el mouse. |
+| ♿ Accesibilidad | Incluye atributos ARIA, roles y foco visible para mejorar la accesibilidad. |
 
 ---
 
-## 📁 Estructura del proyecto
+## 📁 Estructura del Proyecto
 
-```
+```text
 photo-board/
-├── index.html          # HTML principal
+├── index.html          # Interfaz principal
 ├── css/
-│   └── style.css       # Todos los estilos
+│   └── style.css       # Estilos y animaciones
 ├── js/
 │   ├── storage.js      # Capa de persistencia (localStorage)
-│   └── app.js          # Lógica de la aplicación
+│   └── app.js          # Lógica principal de la aplicación
 ├── .gitignore
 └── README.md
 ```
@@ -50,69 +46,74 @@ photo-board/
 
 ## 🚀 Cómo usar
 
-### Abrir directo
+### Abrir directamente
+Puedes abrir el archivo `index.html` directamente en tu navegador favorito:
 ```bash
-open index.html   # Mac
-start index.html  # Windows
+# Mac
+open index.html
+
+# Windows
+start index.html
 ```
 
 ### Clonar desde GitHub
 ```bash
-git clone https://github.com/tu-usuario/photo-board.git
-cd photo-board
-open index.html
+git clone https://github.com/RodriA45/interactive-photo-board.git
+cd interactive-photo-board
+# Abre el index.html en tu navegador
 ```
 
 ---
 
-## 🎨 Personalización
+## 🎨 Personalización (Para Desarrolladores)
 
-Cambiar álbumes por fila — en `js/app.js`:
-```js
+Cambiar la cantidad máxima de álbumes por fila (en `js/app.js`):
+```javascript
 const ROW_SIZE = 4;
 ```
 
-Cambiar calidad de compresión:
-```js
-const COMPRESS_W = 800; // ancho máximo en pixels
+Cambiar la calidad y el tamaño de la compresión automática:
+```javascript
+const COMPRESS_W = 800; // Ancho/alto máximo en píxeles
 ```
 
 ---
 
-## 💾 Persistencia
+## 💾 Sobre la Persistencia de Datos
 
-Los datos se guardan automáticamente en `localStorage`. Para borrar todo:
-```js
+Los datos se guardan automáticamente en tu navegador usando `localStorage`. Si necesitas reiniciar la aplicación o borrar todos los datos, puedes ejecutar este comando en la consola de tu navegador (`F12`):
+```javascript
 localStorage.removeItem('photoboard_v1');
 ```
 
-> Las fotos se guardan como base64. Límite aproximado: 5MB. La compresión automática ayuda a no llenarlo.
+> **Nota:** Las fotos se guardan en formato `base64`. El límite aproximado de `localStorage` es de 5MB. La compresión automática ayuda a maximizar este espacio, pero está diseñado para un uso ligero.
 
 ---
 
-## 📦 Dependencias externas
+## 📦 Dependencias Externas
 
 | Librería | Uso |
 |---|---|
-| [JSZip](https://stuk.github.io/jszip/) | Exportar álbum como .zip |
-| [Google Fonts](https://fonts.google.com) | Tipografías (Permanent Marker + Caveat) |
+| [JSZip](https://stuk.github.io/jszip/) | Permite exportar los álbumes completos como archivos comprimidos `.zip`. |
+| [Google Fonts](https://fonts.google.com) | Se utilizan las tipografías "Permanent Marker" y "Caveat". |
 
-Ambas desde CDN, no hay nada que instalar.
+*Ambas se cargan directamente desde un CDN, por lo que no es necesario ejecutar `npm install` ni instalar nada.*
 
 ---
 
-## ⌨️ Atajos de teclado
+## ⌨️ Atajos de Teclado
 
 | Tecla | Acción |
 |---|---|
-| `Enter` / `Space` | Abrir álbum |
-| `Escape` | Cerrar álbum / lightbox |
-| `←` `→` | Navegar en lightbox |
-| `Doble clic` en nombre | Renombrar |
+| `Enter` / `Espacio` | Abrir el álbum seleccionado |
+| `Escape` | Cerrar un álbum o salir del modo Lightbox |
+| `←` / `→` | Navegar entre fotos en el modo Lightbox |
+| `Doble clic` | Renombrar álbumes y fotos |
 
 ---
 
 ## 📄 Licencia y Créditos
 
-MIT — libre para usar, modificar y distribuir.
-Desarrollado y mejorado por **Rodrigo Antunez**.
+Este proyecto tiene licencia **MIT** — eres libre de usarlo, modificarlo y distribuirlo.
+
+Desarrollado con ❤️ por **Rodrigo Antunez**. Puedes encontrar más sobre mí en mi [LinkedIn](https://www.linkedin.com/in/rodrigo-antunez-9523a6380).
