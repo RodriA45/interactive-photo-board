@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Photo Board</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📸</text></svg>">
+  <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Caveat:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div class="pages" id="pages">
+
+    <!-- ══ PAGE 1: BOARD ══ -->
+    <div class="page-board">
+      <div class="board" id="board">
+        <div class="bg-deco" id="bgDeco"></div>
+
+        <div class="toolbar">
+          <div class="toolbar-left">
+            <div class="board-title" contenteditable="true" spellcheck="false" aria-label="Título del tablero">My Photo Board</div>
+            <div class="board-sub"   contenteditable="true" spellcheck="false">Haz clic en un álbum para abrirlo ✨</div>
+          </div>
+          <div class="toolbar-right">
+            <input type="search" id="searchInput" placeholder="🔍 Buscar álbum..." aria-label="Buscar álbum" autocomplete="off">
+            <label class="icon-btn color-wrap" title="Color del tablero" aria-label="Color del tablero">
+              🎨<input type="color" id="colorPicker" value="#e8a820">
+            </label>
+            <button class="icon-btn" id="darkToggle"  title="Modo oscuro"  aria-label="Modo oscuro"  aria-pressed="false">🌙</button>
+            <button class="icon-btn" id="addAlbumBtn" title="Agregar álbum" aria-label="Agregar álbum">＋</button>
+          </div>
+        </div>
+
+        <div id="rows"></div>
+      </div>
+    </div>
+
+    <!-- ══ PAGE 2: ALBUM ══ -->
+    <div class="page-album" id="pageAlbum">
+      <div class="album-header">
+        <button class="back-btn" id="backBtn" aria-label="Volver al tablero">← Volver</button>
+        <div class="album-title-wrap">
+          <div class="album-title" id="albumTitle" contenteditable="true" spellcheck="false">Álbum</div>
+        </div>
+        <div class="album-actions">
+          <input type="search" id="albumSearch" placeholder="🔍 Buscar..." aria-label="Buscar foto" autocomplete="off">
+          <label class="add-photos-btn" for="albumFileInput">+ Agregar fotos</label>
+          <input type="file" id="albumFileInput" accept="image/*" multiple>
+          <button class="icon-btn" id="exportBtn"  title="Exportar álbum ZIP" aria-label="Exportar álbum">📤</button>
+          <button class="icon-btn danger" id="deleteAlbumBtn" title="Eliminar álbum" aria-label="Eliminar álbum">🗑️</button>
+        </div>
+      </div>
+
+      <div class="filmstrip-wrap">
+        <div class="filmstrip" id="filmstrip">
+          <div class="film-row" id="filmRow1"></div>
+          <div class="film-divider"></div>
+          <div class="film-row" id="filmRow2"></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Foto ampliada">
+    <button class="lb-close" id="lbClose" aria-label="Cerrar">&times;</button>
+    <button class="lb-nav"   id="lbPrev"  aria-label="Anterior">‹</button>
+    <img id="lbImg" src="" alt="Foto ampliada">
+    <button class="lb-nav"   id="lbNext"  aria-label="Siguiente">›</button>
+    <div class="lb-counter" id="lbCounter" aria-live="polite"></div>
+  </div>
+
+  <!-- CONFIRM DIALOG -->
+  <div class="confirm-overlay" id="confirmOverlay">
+    <div class="confirm-box" role="alertdialog" aria-modal="true">
+      <p id="confirmMsg">¿Estás seguro?</p>
+      <div class="confirm-actions">
+        <button id="confirmOk"     class="confirm-btn danger">Eliminar</button>
+        <button id="confirmCancel" class="confirm-btn">Cancelar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    Hecho por <a href="https://www.linkedin.com/in/rodrigo-antunez-9523a6380" target="_blank" rel="noopener noreferrer">Rodrigo Antunez</a>
+  </footer>
+
+  <!-- JSZip (export feature) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

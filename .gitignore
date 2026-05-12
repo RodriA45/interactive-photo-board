@@ -1,0 +1,41 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Editores
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+
+# Fotos subidas localmente (por si en el futuro se guardan en disco)
+uploads/
+*.jpg
+*.jpeg
+*.png
+*.gif
+*.webp
+*.mp4
+*.mov
+
+# Node.js (por si en el futuro se agrega un server o bundler)
+node_modules/
+.env
+.env.local
+.env*.local
+dist/
+build/
+
+# Cache de herramientas
+.cache/
+.parcel-cache/
+.vite/
